@@ -16,7 +16,7 @@ st.subheader('Summarize Youtube or Website URL')
 
 # Get Groq API Key and url to be summarized
 with st.sidebar:
-    groq_api_key=st.text_input("Groq API Key",value="",type="password")
+    groq_api_key=st.text_input("Groq API Key",type="password")
 
 llm=ChatGroq(model="Gemma-7b-It",groq_api_key=groq_api_key)
 
