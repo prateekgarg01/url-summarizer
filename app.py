@@ -18,7 +18,6 @@ st.subheader('Summarize Youtube or Website URL')
 with st.sidebar:
     groq_api_key=st.text_input("Groq API Key",type="password")
 
-llm=ChatGroq(model="Gemma-7b-It",groq_api_key=groq_api_key)
 
 prompt_template="""
 Provide a Summary of the following content in 300 words:
@@ -39,6 +38,7 @@ if st.button("Summarize"):
         try:
             with st.spinner("Waiting..."):
                 ## Load the website or yt video data
+                llm=ChatGroq(model="Gemma-7b-It",groq_api_key=groq_api_key)
                 if "youtube.com" in generic_url:
                     st.write("Working")
                     loader = YoutubeLoader.from_youtube_url(youtube_url=generic_url, add_video_info=True)
